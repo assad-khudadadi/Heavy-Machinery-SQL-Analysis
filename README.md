@@ -35,6 +35,12 @@ The dataset follows a hybrid star and snowflake structure.
 - `Countries by Continents` is a geographic reference table used during cleaning and validation.
 
 The source tables were imported without physical primary-key or foreign-key constraints. Candidate keys and relationships were therefore validated logically during profiling and exploration.
+### Entity Relationship Diagram
+
+The following diagram presents the logical relationships between the fact and dimension tables. These relationships were validated through SQL but are not enforced through physical primary-key or foreign-key constraints.
+
+![Heavy Machinery Sales database ERD](images/00_database_erd.png)
+
 
 ## Project Workflow
 
