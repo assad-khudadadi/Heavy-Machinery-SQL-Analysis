@@ -189,7 +189,7 @@ Heavy-Machinery-SQL-Analysis/
 
 ## Execution Order
 
-1. Import the source tables into SQL Server.
+1. Follow the source-data preparation and import instructions in `data/README.md`.
 2. Review `docs/01_Data_Dictionary.md`.
 3. Run `SQL/02_Data_Profiling.sql` on the imported data.
 4. Run `SQL/03_Data_Cleaning.sql` once on the original imported dataset.
