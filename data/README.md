@@ -2,7 +2,7 @@
 
 ## Original Data Format
 
-The source dataset was originally provided as a Microsoft Excel workbook containing multiple worksheets. Because direct Excel import into SQL Server Management Studio (SSMS) caused import issues, each worksheet was exported as a separate CSV file before being imported into SQL Server.
+The source dataset was originally provided as a Microsoft Excel workbook containing multiple worksheets. To establish a consistent and reproducible SQL Server import workflow, each Excel worksheet was exported as a separate CSV file before being loaded into the database.
 
 The original Excel workbook is approximately 52 MB, while the exported CSV files total approximately 65 MB.
 
