@@ -169,7 +169,7 @@ Heavy-Machinery-SQL-Analysis/
 |
 |-- README.md
 |-- data/
-|   `-- source-data-or-download-instructions
+|   `-- README.md
 |-- docs/
 |   `-- 01_Data_Dictionary.md
 |-- SQL/
