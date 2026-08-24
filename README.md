@@ -166,7 +166,7 @@ Heavy-Machinery-SQL-Analysis/
 |   `-- source-data-or-download-instructions
 |-- docs/
 |   `-- 01_Data_Dictionary.md
-|-- sql/
+|-- SQL/
 |   |-- 02_Data_Profiling.sql
 |   |-- 03_Data_Cleaning.sql
 |   |-- 04_01_Dataset_Exploration.sql
@@ -185,10 +185,10 @@ Heavy-Machinery-SQL-Analysis/
 
 1. Import the source tables into SQL Server.
 2. Review `docs/01_Data_Dictionary.md`.
-3. Run `sql/02_Data_Profiling.sql` on the imported data.
-4. Run `sql/03_Data_Cleaning.sql` once on the original imported dataset.
-5. Run `sql/02_Data_Profiling.sql` again to validate the cleaned data.
-6. Run the eight `sql/04_*` analytical scripts in numerical order.
+3. Run `SQL/02_Data_Profiling.sql` on the imported data.
+4. Run `SQL/03_Data_Cleaning.sql` once on the original imported dataset.
+5. Run `SQL/02_Data_Profiling.sql` again to validate the cleaned data.
+6. Run the eight `SQL/04_*` analytical scripts in numerical order.
 
 > **Important:** The cleaning script contains operations that rename, drop, and recreate columns. It is designed to be executed once on the original imported dataset.
 
