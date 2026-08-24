@@ -30,6 +30,7 @@ The dataset contains the following source tables:
 
 - Each Excel worksheet was exported as an individual CSV file.
 - The CSV files were imported into Microsoft SQL Server.
+- The CSV files were imported without defining physical primary-key or foreign-key constraints. Candidate keys and table relationships were validated logically during data profiling and dataset exploration.
 - Table structures and column definitions are documented in `docs/01_Data_Dictionary.md`.
 - Data-quality issues found after import are documented and validated in `SQL/02_Data_Profiling.sql`.
 - Required corrections are implemented in `SQL/03_Data_Cleaning.sql`.
