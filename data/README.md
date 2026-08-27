@@ -12,6 +12,14 @@ The raw Excel and CSV files are not included in this repository to keep the port
 
 Users with authorized access to the original dataset can reproduce the database by exporting each Excel worksheet as a separate CSV file and importing the resulting files into SQL Server.
 
+## Dataset Attribution
+
+The dataset used in this project was originally provided for a final project in the Syntax Technologies Data Analytics bootcamp. The original Excel workbook and exported CSV files are not included or redistributed in this repository.
+
+The SQL data-profiling and cleaning procedures, analytical queries, business insights, documentation, ERD, and repository presentation were independently developed and expanded for this portfolio project.
+
+Because the original dataset is not publicly distributed, the exact analytical results cannot be reproduced without access to the source data. Result screenshots are included to demonstrate the completed analysis.
+
 ## Source Tables
 
 The dataset contains the following source tables:
