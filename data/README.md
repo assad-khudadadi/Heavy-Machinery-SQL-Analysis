@@ -44,7 +44,7 @@ The dataset contains the following source tables:
 - Required corrections are implemented in `SQL/03_Data_Cleaning.sql`.
 - The cleaning script should be executed only once on the original imported dataset.
 
-## Reproduction Workflow
+## Reproduction Workflow for Authorized Users
 
 1. Obtain authorized access to the original Excel workbook.
 2. Export each worksheet as a separate CSV file.
