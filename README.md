@@ -37,7 +37,7 @@ The dataset follows a hybrid star and snowflake structure.
 The source tables were imported without physical primary-key or foreign-key constraints. Candidate keys and relationships were therefore validated logically during profiling and exploration.
 ### Entity Relationship Diagram
 
-The following diagram presents the logical relationships between the fact and dimension tables. These relationships were validated through SQL but are not enforced through physical primary-key or foreign-key constraints.
+The following diagram presents the logical relationships between the fact and dimension tables. These are documented logical relationships, not physical primary-key or foreign-key constraints. Historical profiling results do not independently establish that every relationship is free of orphan references; use `SQL/03_01_Validation_Tests.sql` for explicit current-data checks.
 
 ![Heavy Machinery Sales database ERD](images/00_database_erd.png)
 
@@ -175,6 +175,7 @@ Heavy-Machinery-SQL-Analysis/
 |-- SQL/
 |   |-- 02_Data_Profiling.sql
 |   |-- 03_Data_Cleaning.sql
+|   |-- 03_01_Validation_Tests.sql
 |   |-- 04_01_Dataset_Exploration.sql
 |   |-- 04_02_Time_Analysis.sql
 |   |-- 04_03_Customer_Analysis.sql
@@ -194,9 +195,20 @@ Heavy-Machinery-SQL-Analysis/
 3. Run `SQL/02_Data_Profiling.sql` on the imported data.
 4. Run `SQL/03_Data_Cleaning.sql` once on the original imported dataset.
 5. Run `SQL/02_Data_Profiling.sql` again to validate the cleaned data.
-6. Run the eight `SQL/04_*` analytical scripts in numerical order.
+6. Run `SQL/03_01_Validation_Tests.sql` and review both the per-test report and the separate unproven-properties report.
+7. Run the eight `SQL/04_*` analytical scripts in numerical order.
 
 > **Important:** The cleaning script contains operations that rename, drop, and recreate columns. It is designed to be executed once on the original imported dataset.
+
+## Independent Validation Tests
+
+`SQL/03_01_Validation_Tests.sql` checks all ten documented logical/reference relationships for non-NULL orphan values, the eight dimension/reference candidate keys, the `Invoice`–`ProductKey` composite key, `DeliveryDate >= TransactionDate`, and the existing numeric rules (`Qty > 0`, `Price > 0`, `Cost >= 0`). It also reports NULL keys/references/numeric values separately and guards against empty tables. Country reference checks use SQL equality under the current database collation; they do not normalize country values.
+
+Each test returns `Pass` or `Fail`, `IssueCount`, `CountUnit`, and `ErrorMessage`. Counts represent violating rows, except duplicate tests count duplicate key groups and empty-table tests return 0 or 1. Counts can overlap and should not be added together. A query error returns `Fail` with a NULL count and an error message, rather than a false zero. Run on a stable dataset in the project database after cleaning; source tables are not modified.
+
+The separate limitations report distinguishes current-data validation from future constraint enforcement, undocumented reference optionality, country matching semantics, and permanent business grain. `EmpKey` cannot be checked against a parent table because no employee dimension is documented. Missing physical constraints do **not** prevent orphan or uniqueness checks on current data.
+
+**Execution status:** This new script has not yet been executed against the source dataset; no new Pass/Fail results are claimed. Existing profiling screenshots describe the earlier seven profiling categories, not the new orphan tests. Preserve the complete output with the database/load version and execution time when it is run.
 
 ## Metric Definitions
 
